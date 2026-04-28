@@ -1,0 +1,34 @@
+# --- Python Junk ---
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+env/
+
+# --- Agricultural Data (Local Only) ---
+raw_data/
+z_images/
+report_images/
+*.xls
+*.xlsx
+*.csv
+
+# --- C++ Junk (Compiled Binaries) ---
+*.exe
+*.out
+*.o
+*.obj
+*.app
+# Ignore the build folder if using CMake
+build/
+
+# --- Web Development Junk (HTML/CSS/JS) ---
+# Dependencies (These are massive and can be re-installed with 'npm install')
+node_modules/
+# OS specific junk
+.DS_Store
+Thumbs.db
+# Build outputs
+dist/
+.next/
