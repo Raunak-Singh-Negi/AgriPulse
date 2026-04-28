@@ -1,0 +1,48 @@
+name: AgriPulse Daily Update
+
+on:
+  schedule:
+    # This runs at 10:00 AM IST (4:30 AM UTC) every day
+    - cron: '30 4 * * *'
+  workflow_dispatch: # This allows you to run it manually for testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install System Dependencies (Tesseract & Chrome)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y tesseract-ocr
+        # GitHub Actions already has Chrome, but we ensure it's ready
+
+    - name: Install Python Libraries
+      run: |
+        pip install selenium pytesseract pillow pandas numpy scikit-learn lxml beautifulsoup4 matplotlib seaborn
+
+    - name: Run Scraper & Update Warehouse
+      run: |
+        python scraper.py
+        python warehouse.py
+
+    - name: Generate Analytics & Dashboard
+      run: |
+        python analyzer.py
+        python report_generator.py
+
+    - name: Commit and Push Updated Data
+      run: |
+        git config --global user.name "AgriPulse Bot"
+        git config --global user.email "actions@github.com"
+        git add agri_warehouse.db README.md report_images/
+        git commit -m "Auto-update: Daily Prices $(date +'%Y-%m-%d')" || echo "No changes to commit"
+        git push
