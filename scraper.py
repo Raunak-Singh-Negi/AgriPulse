@@ -12,7 +12,6 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
 
-# --- YOUR VITAL GOVERNMENT URLS ---
 MENU_URL = "https://fcainfoweb.nic.in/reports/report_menu_web.aspx"
 DIRECT_URL = "https://fcainfoweb.nic.in/reports/Report_daily1_web_Statewise.aspx"
 

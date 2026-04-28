@@ -1,5 +1,5 @@
 import analyzer
-import visualizer1
+import visualizer
 from datetime import datetime
 
 def generate_markdown_tables(report_data, trend_data):
@@ -64,8 +64,8 @@ def build_readme():
     trend_data, daily_avg_df = analyzer.get_trend_report_data(df)
     
     print("Drawing Graphs...")
-    visualizer1.plot_arbitrage_bar_chart(report_data)
-    visualizer1.plot_30_day_trend(daily_avg_df)
+    visualizer.plot_arbitrage_bar_chart(report_data)
+    visualizer.plot_30_day_trend(daily_avg_df)
     
     print("Writing Markdown Tables...")
     table1, table2 = generate_markdown_tables(report_data, trend_data)
@@ -78,14 +78,7 @@ def build_readme():
 
 This project tracks wholesale prices of essential commodities across India, using Machine Learning to forecast short-term price momentum.
 
-##  30-Day Market Trend (Essentials)
-![30 Day Trend](report_images/30_day_trend.png)
 
-##  Top Arbitrage Opportunities
-![Top Arbitrage](report_images/top_arbitrage.png)
-
-## 🔮 Inflation & ML Forecast
-*Note: The AI model uses a 10-day momentum window to predict tomorrow's price jump.*
 {table2}
 
 <details>
