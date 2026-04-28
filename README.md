@@ -9,7 +9,7 @@ This project tracks wholesale prices of essential commodities across India, usin
 ##  Top Arbitrage Opportunities
 ![Top Arbitrage](report_images/top_arbitrage.png)
 
-## 🔮 Inflation & ML Forecast
+## Inflation & ML Forecast
 *Note: The AI model uses a 10-day momentum window to predict tomorrow's price jump.*
 | S.No | Commodity | 1-Month Trend | 1-Week Trend | Price Difference | Tomorrow (Forecast) |
 |---|---|---|---|---|---|
