@@ -41,8 +41,11 @@ jobs:
 
     - name: Commit and Push Updated Data
       run: |
+        - name: Commit and Push Updated Data
+      run: |
         git config --global user.name "AgriPulse Bot"
         git config --global user.email "actions@github.com"
-        git add agri_warehouse.db README.md report_images/
-        git commit -m "Auto-update: Daily Prices $(date +'%Y-%m-%d')" || echo "No changes to commit"
+        # CRITICAL: Include the report_images/ folder here!
+        git add agri_warehouse.db README.md report_images/ 
+        git commit -m "Auto-update: Daily Prices $(date +'%Y-%m-%d')" || echo "No changes"
         git push
