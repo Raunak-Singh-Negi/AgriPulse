@@ -5,13 +5,11 @@ from datetime import datetime
 def generate_markdown_tables(report_data, trend_data):
     """Converts the raw data into GitHub-friendly Markdown tables with swapped columns and S.No."""
     
-    # 1. Create a lookup dictionary. This allows us to easily grab "Spread" from report_data
-    # and put it next to "1-Month Trend" from trend_data.
+    # 1. Create a lookup dictionary. 
     trend_dict = {item['commodity']: item for item in trend_data}
     report_dict = {item['commodity']: item for item in report_data}
     
     # 2. Get an Alphabetical list of all commodities. 
-    # This ensures "Atta (Wheat)" is always S.No 1 in BOTH tables.
     all_commodities = sorted(list(report_dict.keys()))
 
     # --- TABLE 1: HIGH / LOW / TODAY PREDICTED (Swapped) / AVERAGE ---
@@ -25,18 +23,16 @@ def generate_markdown_tables(report_data, trend_data):
     # 3. Loop through them alphabetically and assign a Serial Number (index)
     for index, commodity in enumerate(all_commodities, start=1):
         
-        # Grab the math for this specific commodity from both lists
         r_data = report_dict.get(commodity)
         t_data = trend_dict.get(commodity)
         
-        # Skip if a commodity happens to be missing from one of the datasets
         if not r_data or not t_data:
             continue
             
         # Format Table 1 Strings
-        high_str = f"₹{r_data['max_price']:.2f} ({r_data['max_state'][:10]})" # Shortened state name to 10 chars to save space
+        high_str = f"₹{r_data['max_price']:.2f} ({r_data['max_state'][:10]})" 
         low_str = f"₹{r_data['min_price']:.2f} ({r_data['min_state'][:10]})"
-        today_pred_str = f"**₹{t_data['today_pred']:.2f}**" # Made bold so it stands out
+        today_pred_str = f"**₹{t_data['today_pred']:.2f}**" 
         avg_str = f"₹{r_data['avg_price']:.2f}"
         
         # Format Table 2 Strings
@@ -52,47 +48,60 @@ def generate_markdown_tables(report_data, trend_data):
     return table1, table2
 
 def build_readme():
-    print("Fetching data from Warehouse...")
+    print(" AgriPulse: Fetching data from Warehouse...")
     df = analyzer.get_data()
     
     if df.empty:
-        print("Database empty. Aborting.")
+        print(" Database empty. Aborting.")
         return
         
-    print("Calculating Intelligence...")
+    print(" Calculating Intelligence...")
     report_data = analyzer.get_daily_report_data(df)
     trend_data, daily_avg_df = analyzer.get_trend_report_data(df)
     
-    print("Drawing Graphs...")
+    print(" Drawing Graphs...")
     visualizer.plot_arbitrage_bar_chart(report_data)
     visualizer.plot_30_day_trend(daily_avg_df)
     
-    print("Writing Markdown Tables...")
+    print(" Writing Markdown Tables...")
     table1, table2 = generate_markdown_tables(report_data, trend_data)
     
-    # Assembly: The Final README
-    today_str = datetime.now().strftime("%B %d, %Y")
+    # DYNAMIC DATE LOGIC: Use the latest date found in the actual database
+    data_date = df['report_date'].max()
+    formatted_date = datetime.strptime(data_date, "%Y-%m-%d").strftime("%B %d, %Y")
     
+    # Assembly: The Final README with embedded images
     readme_content = f"""#  Agri-Price Intelligence Dashboard
-**Last Updated:** {today_str}
+> **Status:** Operational | **Data Snapshot:** {formatted_date}
 
-This project tracks wholesale prices of essential commodities across India, using Machine Learning to forecast short-term price momentum.
+This automated engine tracks wholesale prices across India and uses Machine Learning to forecast short-term price momentum.
 
-
+##  Price Momentum & Forecasts
 {table2}
 
+##  Visual Trends
+
+### 30-Day Price Trajectory
+![Price Trend](report_images/30_day_trend.png)
+
+### Top 5 Arbitrage (State-to-State Spread)
+![Top Arbitrage](report_images/top_arbitrage.png)
+
 <details>
-<summary><b> Click to Expand: Daily State-by-State Highs & Lows</b></summary>
+<summary><b>  Click to View: Daily State-by-State Highs & Lows</b></summary>
 
 {table1}
 
 </details>
+
+---
+*Generated automatically by AgriPulse Engine on GitHub Actions.*
 """
     
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
         
-    print(" Success! README.md and graphs generated.")
+    print(f" Success! Dashboard updated for {formatted_date}.")
 
 if __name__ == "__main__":
     build_readme()

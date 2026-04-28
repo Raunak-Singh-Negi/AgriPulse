@@ -37,7 +37,6 @@ jobs:
     - name: Generate Analytics & Dashboard
       run: |
         python analyzer.py
-        python visualizer.py
         python report_generator.py
 
     - name: Commit and Push Updated Data
