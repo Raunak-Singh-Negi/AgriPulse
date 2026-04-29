@@ -46,7 +46,12 @@ def generate_markdown_tables(report_data, trend_data):
         table2 += f"| {index} | **{commodity}** | {m_inf} | {w_inf} | {spread_str} | {f_cast} |\n"
 
     return table1, table2
-
+#def build_readme():
+ #   print(" AgriPulse: Fetching data from Warehouse...")
+  #  df = analyzer.get_data()
+    
+    # ADD THIS TEMPORARY LINE:
+   # print("MY COLUMNS ARE:", df.columns)"""
 def build_readme():
     print(" AgriPulse: Fetching data from Warehouse...")
     df = analyzer.get_data()
@@ -59,33 +64,58 @@ def build_readme():
     report_data = analyzer.get_daily_report_data(df)
     trend_data, daily_avg_df = analyzer.get_trend_report_data(df)
     
+    # Get the inflation data from the analyzer
+    national_avg, high_trend, low_trend, high_state, low_state = analyzer.calculate_inflation_trends(df)
+    
+    # --- NEW: Calculate Topline National Inflation Metrics ---
+    # Month is the final cumulative number. Week is last 7 days. Today is last 24 hours.
+    nat_month_inf = national_avg['inflation_pct'].iloc[-1]
+    nat_week_inf = national_avg['inflation_pct'].iloc[-1] - national_avg['inflation_pct'].iloc[-8] if len(national_avg) >= 8 else 0
+    nat_daily_inf = national_avg['inflation_pct'].iloc[-1] - national_avg['inflation_pct'].iloc[-2] if len(national_avg) >= 2 else 0
+
+    def fmt_inf(val):
+        return f"+{val:.2f}%" if val > 0 else f"{val:.2f}%"
+
+    topline_str = f"**National Average Inflation:** 30-Day: {fmt_inf(nat_month_inf)} | 7-Day: {fmt_inf(nat_week_inf)} | 24-Hour: {fmt_inf(nat_daily_inf)}"
+    # ---------------------------------------------------------
+
     print(" Drawing Graphs...")
-    visualizer.plot_arbitrage_bar_chart(report_data)
-    visualizer.plot_30_day_trend(daily_avg_df)
+    matrix_data = analyzer.calculate_arbitrage_matrix(df)
+    visualizer.plot_arbitrage_matrix(matrix_data)
+    visualizer.plot_inflation_variance(national_avg, high_trend, low_trend, high_state, low_state)
     
     print(" Writing Markdown Tables...")
     table1, table2 = generate_markdown_tables(report_data, trend_data)
     
-    # DYNAMIC DATE LOGIC: Use the latest date found in the actual database
     data_date = df['report_date'].max()
-    formatted_date = datetime.strptime(data_date, "%Y-%m-%d").strftime("%B %d, %Y")
+    formatted_date = data_date.strftime("%B %d, %Y")
     
-    # Assembly: The Final README with embedded images
+    # --- NEW: Updated Markdown Template with Explanations ---
     readme_content = f"""#  Agri-Price Intelligence Dashboard
 > **Status:** Operational | **Data Snapshot:** {formatted_date}
 
 This automated engine tracks wholesale prices across India and uses Machine Learning to forecast short-term price momentum.
+
+> {topline_str}
 
 ##  Price Momentum & Forecasts
 {table2}
 
 ##  Visual Trends
 
-### 30-Day Price Trajectory
-![Price Trend](report_images/30_day_trend.png)
+### 30-Day Inflation Variance (National vs Extremes)
+*The graph below represents the average cumulative inflation across India, compared against the specific State or Union Territory experiencing the highest and lowest price variations over the last 30 days.*
 
-### Top 5 Arbitrage (State-to-State Spread)
-![Top Arbitrage](report_images/top_arbitrage.png)
+![Inflation Variance](report_images/30_day_trend.png)
+
+### 10-Day Market Risk Matrix (Arbitrage vs. Volatility)
+**How to read this matrix:**
+* ↘️ **Bottom-Right (Golden Zone):** High profit margins, stable prices.
+* ↗️ **Top-Right (High Risk):** Huge profit margins, but prices change violently.
+* ↖️ **Top-Left (Chaos Zone):** Low profit margins and highly unstable prices.
+* ↙️ **Bottom-Left (Safe Zone):** Low profit margins, but very predictable staple prices.
+
+![Market Risk Matrix](report_images/top_arbitrage.png)
 
 <details>
 <summary><b>  Click to View: Daily State-by-State Highs & Lows</b></summary>

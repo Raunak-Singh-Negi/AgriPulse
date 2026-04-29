@@ -3,6 +3,8 @@
 
 This automated engine tracks wholesale prices across India and uses Machine Learning to forecast short-term price momentum.
 
+> **National Average Inflation:** 30-Day: +1.38% | 7-Day: +0.24% | 24-Hour: -0.01%
+
 ##  Price Momentum & Forecasts
 | S.No | Commodity | 1-Month Trend | 1-Week Trend | Price Difference | Tomorrow (Forecast) |
 |---|---|---|---|---|---|
@@ -50,11 +52,19 @@ This automated engine tracks wholesale prices across India and uses Machine Lear
 
 ##  Visual Trends
 
-### 30-Day Price Trajectory
-![Price Trend](report_images/30_day_trend.png)
+### 30-Day Inflation Variance (National vs Extremes)
+*The graph below represents the average cumulative inflation across India, compared against the specific State or Union Territory experiencing the highest and lowest price variations over the last 30 days.*
 
-### Top 5 Arbitrage (State-to-State Spread)
-![Top Arbitrage](report_images/top_arbitrage.png)
+![Inflation Variance](report_images/30_day_trend.png)
+
+### 10-Day Market Risk Matrix (Arbitrage vs. Volatility)
+**How to read this matrix:**
+* ↘️ **Bottom-Right (Golden Zone):** High profit margins, stable prices.
+* ↗️ **Top-Right (High Risk):** Huge profit margins, but prices change violently.
+* ↖️ **Top-Left (Chaos Zone):** Low profit margins and highly unstable prices.
+* ↙️ **Bottom-Left (Safe Zone):** Low profit margins, but very predictable staple prices.
+
+![Market Risk Matrix](report_images/top_arbitrage.png)
 
 <details>
 <summary><b>  Click to View: Daily State-by-State Highs & Lows</b></summary>
