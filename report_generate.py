@@ -109,10 +109,10 @@ This automated engine tracks wholesale prices across India and uses Machine Lear
 
 ### 10-Day Market Risk Matrix (Arbitrage vs. Volatility)
 **How to read this matrix:**
-***Bottom-Right Quadrant(Golden Zone):** High profit margins, stable prices.
-***Top-Right Quadrant(High Risk):*** Huge profit margins, but prices change violently.
-***Top-Left Quadrant(Chaos Zone):*** Low profit margins and highly unstable prices.
-***Bottom-Left Quadrant(Safe Zone):*** Low profit margins, but very predictable staple prices.
+* **Bottom-Right Quadrant (Golden Zone):** High profit margins, stable prices.
+* **Top-Right Quadrant (High Risk):** Huge profit margins, but prices change violently.
+* **Top-Left Quadrant (Chaos Zone):** Low profit margins and highly unstable prices.
+* **Bottom-Left Quadrant (Safe Zone):** Low profit margins, but very predictable staple prices.
 
 ![Market Risk Matrix](report_images/top_arbitrage.png)
 
