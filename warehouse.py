@@ -7,7 +7,7 @@ import re
 from datetime import datetime, timedelta
 from io import StringIO 
 
-#RAW_DATA_DIR = r"C:\Users\raunak\Desktop\AgriPulse\raw_data"
+#RAW_DATA_DIR = r"C:\Users\raunak\Desktop\AgriPulse\raw_data" # desktop version
 RAW_DATA_DIR = os.path.join(os.path.dirname(__file__), "raw_data")
 DB_NAME = "agri_warehouse.db"
 
@@ -84,7 +84,7 @@ def parse_html_file(file_path):
     melted_df = df.melt(id_vars=['state_name'], var_name='commodity', value_name='price')
     melted_df['report_date'] = sql_date
     
-    # 5. FORCE NUMERIC (Critical Safety Step)
+    # 5. FORCE NUMERIC 
     melted_df['price'] = pd.to_numeric(melted_df['price'], errors='coerce').fillna(0)
     
     return melted_df
@@ -123,7 +123,7 @@ def etl_process():
     
     print(f"\n ETL Complete. Warehouse updated with {total_rows} records.")
     
-    # Run the cleanup logic immediately after loading
+    #cleanup logic
     trim_old_data(days_to_keep=30)
 
 if __name__ == "__main__":

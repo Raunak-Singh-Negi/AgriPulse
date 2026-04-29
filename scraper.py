@@ -15,16 +15,16 @@ from datetime import datetime, timedelta
 MENU_URL = "https://fcainfoweb.nic.in/reports/report_menu_web.aspx"
 DIRECT_URL = "https://fcainfoweb.nic.in/reports/Report_daily1_web_Statewise.aspx"
 
-# --- 1. CROSS-PLATFORM TESSERACT CONFIG ---
+# CROSS-PLATFORM TESSERACT
 if platform.system() == "Windows":
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-# --- 2. DYNAMIC RELATIVE PATHS ---
+# DYNAMIC RELATIVE PATHS for both systems
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOWNLOAD_DIR = os.path.join(BASE_DIR, "raw_data")
 IMAGE_DIR = os.path.join(BASE_DIR, "z_images")
 
-# Reset Image Directory
+# Reset Image directories for making it stable
 if os.path.exists(IMAGE_DIR):
     shutil.rmtree(IMAGE_DIR) 
 os.makedirs(IMAGE_DIR) 
@@ -32,21 +32,21 @@ os.makedirs(IMAGE_DIR)
 if not os.path.exists(DOWNLOAD_DIR):
     os.makedirs(DOWNLOAD_DIR)
 
-# Define static file paths
+# Define file paths
 CAPTCHA_PATH = os.path.join(IMAGE_DIR, "temp_captcha.png")
 CRASH_PATH = os.path.join(IMAGE_DIR, "crash.png")
 
 def setup_driver():
     options = webdriver.ChromeOptions()
     
-    # --- HEADLESS MODE ---
+    # open chrome in HEADLESS MODE for automatic pipeline
     options.add_argument("--headless=new") 
     options.add_argument("--window-size=1920,1080")
 
-    # --- humanify ---
+    # humanify  the sraper to work on gov website
     options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
     
-    # --- PERFORMANCE & STABILITY ---
+    #PERFORMANCE & STABILITY boasters so the program doesnt break easily
     options.add_argument("--disable-cache")
     options.add_argument("--disk-cache-size=0")
     options.add_argument("--no-sandbox")
@@ -69,14 +69,14 @@ def solve_captcha(driver):
         # 1. Find the element
         captcha_img = driver.find_element(By.ID, "ctl00_MainContent_captchalogin")
         
-        # 2. Scroll it into view (Crucial for Headless!)
+        # 2. Scroll it into view (must for headless mode)
         driver.execute_script("arguments[0].scrollIntoView();", captcha_img)
         time.sleep(0.5) 
         
         # 3. Take Screenshot
         captcha_img.screenshot(CAPTCHA_PATH)
         
-        # 4. Read Text
+        # 4. Read Text which is just 6 digit with limited options observed manualy
         custom_config = r'--psm 6 -c tessedit_char_whitelist=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
         captcha_text = pytesseract.image_to_string(Image.open(CAPTCHA_PATH), config=custom_config)
         
@@ -94,7 +94,7 @@ def main():
         wait = WebDriverWait(driver, 15)
         print("Opened Browser as Headless")
     except Exception as e:
-        print(f" Failed to start browser. Did you kill the old Chrome tasks? Error: {e}")
+        print(f" Failed to start browser. Error: {e}")
         return
 
     try:
@@ -114,7 +114,7 @@ def main():
         
         driver.find_element(By.ID, "ctl00_MainContent_Txt_FrmDate").send_keys(yesterday_str)
 
-        # --- CAPTCHA LOOP ---
+        # CAPTCHA LOOP with sleep in cases first captcha read fails due to site refresh or incorrect length errors
         max_retries = 5
         session_established = False
         
@@ -151,13 +151,13 @@ def main():
                 except:
                     pass
 
-        # --- STOP IF FAILED ---
+        #STOP IF FAILED 
         if not session_established:
             print("\n CRITICAL: Failed to solve Captcha 5 times. Aborting to prevent crash.")
             driver.quit()
             return
 
-        # --- DOWNLOAD (The Teleport) ---
+        # DOWNLOAD (The Teleport)
         print(" Teleporting to Download Page...")
         time.sleep(5) 
         driver.get(DIRECT_URL)
@@ -169,7 +169,7 @@ def main():
         print(" Waiting for file...")
         time.sleep(8) 
         
-        # --- RENAME LOGIC ---
+        #RENAME LOGIC 
         files = os.listdir(DOWNLOAD_DIR)
         paths = [os.path.join(DOWNLOAD_DIR, basename) for basename in files if basename.endswith(".xls")]
         

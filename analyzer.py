@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-# --- CONFIGURATION ---
+#CONFIGURATION
 DB_NAME = "agri_warehouse.db"
 
 def get_data():
@@ -12,7 +12,7 @@ def get_data():
     """
     conn = sqlite3.connect(DB_NAME)
     
-    # Memory Optimization: Only load the last 90 days into RAM
+    # Only load the last 90 days into RAM
     query = """
         SELECT * FROM daily_prices 
         WHERE report_date >= date('now', '-90 days') 
@@ -21,13 +21,13 @@ def get_data():
     df = pd.read_sql(query, conn)
     conn.close()
 
-    # 1. Convert 0 to NaN (Pandas understands NaN as 'Missing')
+    # Convert 0 to NaN 
     df['price'] = df['price'].replace(0, np.nan)
 
-    # 2. Fix Missing Data (Imputation)
+    # Fix Missing Data (Imputation)
     df['price'] = df.groupby(['state_name', 'commodity'])['price'].ffill().bfill()
 
-    # 3. Drop rows that are STILL empty
+    # Drop rows that are STILL empty
     df = df.dropna(subset=['price'])
     
     return df
@@ -125,7 +125,7 @@ def get_trend_report_data(df, date=None):
         else:
             today_predicted = today_price 
             
-        # --- PREDICT TOMORROW ---
+        #PREDICT TOMORROW
         momentum_series = series.tail(momentum_days)
         
         if len(momentum_series) >= 5:
@@ -151,18 +151,18 @@ def get_trend_report_data(df, date=None):
     return trend_data, daily_avg
 
 def calculate_inflation_trends(df):
-    # 1. Get the average price per state, per day (FIXED: 'state_name')
+    #  Get the average price per state, per day (FIXED: 'state_name')
     state_daily = df.groupby(['report_date', 'state_name'])['price'].mean().reset_index()
     state_daily = state_daily.sort_values(['state_name', 'report_date'])
 
-    # 2. Calculate Cumulative Inflation 
+    # Calculate Cumulative Inflation 
     state_daily['base_price'] = state_daily.groupby('state_name')['price'].transform('first')
     state_daily['inflation_pct'] = ((state_daily['price'] - state_daily['base_price']) / state_daily['base_price']) * 100
 
-    # 3. Calculate the National Average Inflation per day
+    #Calculate the National Average Inflation per day
     national_avg = state_daily.groupby('report_date')['inflation_pct'].mean().reset_index()
 
-    # 4. Identify the Highest and Lowest states based on the FINAL day
+    # Identify the Highest and Lowest states based on the FINAL day
     last_day = state_daily['report_date'].max()
     final_day_data = state_daily[state_daily['report_date'] == last_day]
     
@@ -176,12 +176,12 @@ def calculate_inflation_trends(df):
 
     return national_avg, highest_trend, lowest_trend, highest_state, lowest_state
 def calculate_arbitrage_matrix(df):
-    # 1. Filter to the last 10 days
+    #Filter to the last 10 days
     df['report_date'] = pd.to_datetime(df['report_date'])
     last_10_days = df['report_date'].max() - pd.Timedelta(days=10)
     df_10 = df[df['report_date'] >= last_10_days]
 
-    # 2. Calculate X-Axis (Arbitrage Spread %)
+    # Calculate X-Axis (Arbitrage Spread %)
     # Find max and min prices across states for each commodity, every day
     daily_spread = df_10.groupby(['report_date', 'commodity'])['price'].agg(['max', 'min']).reset_index()
     daily_spread['spread_pct'] = ((daily_spread['max'] - daily_spread['min']) / daily_spread['min']) * 100
@@ -189,18 +189,18 @@ def calculate_arbitrage_matrix(df):
     # Average that spread over the 10 days
     commodity_spread = daily_spread.groupby('commodity')['spread_pct'].mean().reset_index()
 
-    # 3. Calculate Y-Axis (Volatility %)
+    # Calculate Y-Axis (Volatility %)
     # Get national daily average, then find the Coefficient of Variation (Std / Mean)
     daily_avg = df_10.groupby(['report_date', 'commodity'])['price'].mean().reset_index()
     commodity_volatility = daily_avg.groupby('commodity')['price'].agg(['std', 'mean']).reset_index()
     commodity_volatility['volatility_pct'] = (commodity_volatility['std'] / commodity_volatility['mean']) * 100
 
-    # 4. Merge into our final Matrix DataFrame
+    # Merge into our final Matrix DataFrame
     matrix_data = pd.merge(commodity_spread, commodity_volatility[['commodity', 'volatility_pct']], on='commodity')
     matrix_data = matrix_data.fillna(0) # Catch any math errors (like dividing by zero)
 
     return matrix_data
-# --- TEST BLOCK ---
+#TEST BLOCK
 if __name__ == "__main__":
     print(" Initializing Analyzer Engine...")
     

@@ -3,24 +3,24 @@ import visualizer
 from datetime import datetime
 
 def generate_markdown_tables(report_data, trend_data):
-    """Converts the raw data into GitHub-friendly Markdown tables with swapped columns and S.No."""
+    """Converts the raw data into GitHub Markdown tables with S.No."""
     
-    # 1. Create a lookup dictionary. 
+    #Create a lookup dictionary. 
     trend_dict = {item['commodity']: item for item in trend_data}
     report_dict = {item['commodity']: item for item in report_data}
     
-    # 2. Get an Alphabetical list of all commodities. 
+    # Alphabetical list of all commodities. 
     all_commodities = sorted(list(report_dict.keys()))
 
-    # --- TABLE 1: HIGH / LOW / TODAY PREDICTED (Swapped) / AVERAGE ---
+    #TABLE 1: HIGH / LOW / TODAY PREDICTED  / AVERAGE 
     table1 = "| S.No | Commodity | Highest Price | Lowest Price | Today (Predicted) | Average |\n"
     table1 += "|---|---|---|---|---|---|\n"
     
-    # --- TABLE 2: TRENDS / SPREAD (Swapped) / FORECAST ---
+    #TABLE 2: TRENDS / SPREAD / FORECAST
     table2 = "| S.No | Commodity | 1-Month Trend | 1-Week Trend | Price Difference | Tomorrow (Forecast) |\n"
     table2 += "|---|---|---|---|---|---|\n"
     
-    # 3. Loop through them alphabetically and assign a Serial Number (index)
+    #Loop through them alphabetically and assign a Serial Number (index)
     for index, commodity in enumerate(all_commodities, start=1):
         
         r_data = report_dict.get(commodity)
@@ -60,14 +60,14 @@ def build_readme():
         print(" Database empty. Aborting.")
         return
         
-    print(" Calculating Intelligence...")
+    print(" Calculating ...")
     report_data = analyzer.get_daily_report_data(df)
     trend_data, daily_avg_df = analyzer.get_trend_report_data(df)
     
     # Get the inflation data from the analyzer
     national_avg, high_trend, low_trend, high_state, low_state = analyzer.calculate_inflation_trends(df)
     
-    # --- NEW: Calculate Topline National Inflation Metrics ---
+    # Calculate Topline National Inflation Metrics
     # Month is the final cumulative number. Week is last 7 days. Today is last 24 hours.
     nat_month_inf = national_avg['inflation_pct'].iloc[-1]
     nat_week_inf = national_avg['inflation_pct'].iloc[-1] - national_avg['inflation_pct'].iloc[-8] if len(national_avg) >= 8 else 0
@@ -77,7 +77,6 @@ def build_readme():
         return f"+{val:.2f}%" if val > 0 else f"{val:.2f}%"
 
     topline_str = f"**National Average Inflation:** 30-Day: {fmt_inf(nat_month_inf)} | 7-Day: {fmt_inf(nat_week_inf)} | 24-Hour: {fmt_inf(nat_daily_inf)}"
-    # ---------------------------------------------------------
 
     print(" Drawing Graphs...")
     matrix_data = analyzer.calculate_arbitrage_matrix(df)
@@ -90,8 +89,8 @@ def build_readme():
     data_date = df['report_date'].max()
     formatted_date = data_date.strftime("%B %d, %Y")
     
-    # --- NEW: Updated Markdown Template with Explanations ---
-    readme_content = f"""#  Agri-Price Intelligence Dashboard
+    #Markdown Template
+    readme_content = f"""#  Agri-Price daily smart Dashboard
 > **Status:** Operational | **Data Snapshot:** {formatted_date}
 
 This automated engine tracks wholesale prices across India and uses Machine Learning to forecast short-term price momentum.
@@ -110,10 +109,10 @@ This automated engine tracks wholesale prices across India and uses Machine Lear
 
 ### 10-Day Market Risk Matrix (Arbitrage vs. Volatility)
 **How to read this matrix:**
-* ↘️ **Bottom-Right (Golden Zone):** High profit margins, stable prices.
-* ↗️ **Top-Right (High Risk):** Huge profit margins, but prices change violently.
-* ↖️ **Top-Left (Chaos Zone):** Low profit margins and highly unstable prices.
-* ↙️ **Bottom-Left (Safe Zone):** Low profit margins, but very predictable staple prices.
+***Bottom-Right Quadrant(Golden Zone):** High profit margins, stable prices.
+***Top-Right Quadrant(High Risk):*** Huge profit margins, but prices change violently.
+***Top-Left Quadrant(Chaos Zone):*** Low profit margins and highly unstable prices.
+***Bottom-Left Quadrant(Safe Zone):*** Low profit margins, but very predictable staple prices.
 
 ![Market Risk Matrix](report_images/top_arbitrage.png)
 
