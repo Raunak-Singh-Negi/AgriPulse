@@ -9,7 +9,7 @@ env/
 # --- Agricultural Data (Local Only) ---
 raw_data/
 z_images/
-report_images/
+#report_images/
 *.xls
 *.xlsx
 *.csv
