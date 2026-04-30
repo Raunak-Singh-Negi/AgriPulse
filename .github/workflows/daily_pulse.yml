@@ -3,7 +3,7 @@ name: AgriPulse Daily Update
 on:
   schedule:
     # 19:00 UTC = 12:30 AM IST
-    - cron: '0 19 * * *'
+    - cron: '30 0 * * *'
   workflow_dispatch: #  manually for testing
 
 jobs:
