@@ -1,54 +1,54 @@
 #  Agri-Price daily smart Dashboard
-> **Status:** Operational | **Data Snapshot:** November 10, 2026
+> **Status:** Operational | **Data Snapshot:** November 11, 2026
 
 This automated engine tracks wholesale prices across India and uses Machine Learning to forecast short-term price momentum.
 
-> **National Average Inflation:** 30-Day: +1.90% | 7-Day: +0.21% | 24-Hour: +0.07%
+> **National Average Inflation:** 30-Day: +0.97% | 7-Day: +0.14% | 24-Hour: +0.19%
 
 ##  Price Momentum & Forecasts
 | S.No | Commodity | 1-Month Trend | 1-Week Trend | Price Difference | Tomorrow (Forecast) |
 |---|---|---|---|---|---|
-| 1 | **Atta (Wheat)** | +0.76% | -0.11% | ₹34.05 | -₹0.05 |
-| 2 | **Bajra (whole)** | +0.48% | -0.10% | ₹101.00 | +₹0.17 |
-| 3 | **Banana** | +0.94% | +0.06% | ₹56.01 | -₹0.69 |
-| 4 | **Besan** | +3.51% | +0.02% | ₹63.60 | +₹0.39 |
-| 5 | **Black Pepper (whole)** | +2.09% | -0.11% | ₹24.13 | -₹0.03 |
-| 6 | **Brinjal** | -0.16% | +1.46% | ₹144.67 | -₹1.29 |
-| 7 | **Broken Rice** | +1.14% | +0.63% | ₹45.66 | -₹0.15 |
-| 8 | **Butter (Pasteurised)** | -0.32% | +0.42% | ₹12.33 | +₹0.12 |
-| 9 | **Coriander (whole)** | -1.03% | +1.40% | ₹47.85 | +₹0.38 |
-| 10 | **Cummin Seed (whole)** | -3.42% | +0.23% | ₹44.00 | +₹0.02 |
-| 11 | **Desi Ghee** | +7.03% | +0.44% | ₹292.33 | -₹1.30 |
-| 12 | **Eggs** | +1.68% | +1.17% | ₹45.00 | +₹0.65 |
-| 13 | **Garlic** | -1.65% | +1.06% | ₹59.74 | -₹0.24 |
-| 14 | **Ginger** | -9.40% | +0.00% | ₹66.67 | -₹0.41 |
-| 15 | **Gram Dal** | +3.26% | +0.18% | ₹50.00 | +₹0.44 |
-| 16 | **Groundnut Oil (Packed)** | +2.95% | -0.13% | ₹240.25 | +₹1.13 |
-| 17 | **Gur** | +1.30% | +0.50% | ₹57.50 | +₹0.19 |
-| 18 | **Jowar (whole)** | +0.37% | +0.10% | ₹47.00 | -₹0.05 |
-| 19 | **Maida (wheat)** | -1.51% | +0.04% | ₹36.50 | +₹0.14 |
-| 20 | **Masoor Dal** | +0.10% | -0.20% | ₹47.55 | -₹0.10 |
-| 21 | **Milk @** | +0.17% | -0.36% | ₹36.25 | +₹0.04 |
-| 22 | **Moong Dal** | +1.65% | +0.13% | ₹28.20 | +₹0.04 |
-| 23 | **Mustard Oil (Packed)** | +1.71% | -0.20% | ₹87.74 | +₹0.75 |
-| 24 | **Onion** | -0.38% | +0.07% | ₹46.00 | -₹0.58 |
-| 25 | **Palm Oil (Packed)** | +3.60% | -0.31% | ₹178.00 | -₹0.89 |
-| 26 | **Potato** | -1.16% | +0.83% | ₹31.24 | -₹0.42 |
-| 27 | **Ragi (whole)** | +2.25% | +1.06% | ₹71.37 | +₹0.39 |
-| 28 | **Red Chillies (whole)** | -1.24% | +0.61% | ₹31.31 | -₹0.05 |
-| 29 | **Rice** | +2.51% | -0.01% | ₹38.77 | +₹0.01 |
-| 30 | **Salt Pack (Iodised)** | +1.27% | +0.49% | ₹20.07 | +₹0.02 |
-| 31 | **Soya Oil (Packed)** | +2.36% | +0.07% | ₹168.00 | +₹2.69 |
-| 32 | **Sugar** | +5.74% | +1.48% | ₹23.00 | +₹0.50 |
-| 33 | **Suji (whole)** | -6.67% | -0.46% | ₹52.40 | -₹0.45 |
-| 34 | **Sunflower Oil (Packed)** | +0.59% | +0.05% | ₹468.00 | +₹0.76 |
-| 35 | **Tea Loose** | -0.46% | +0.02% | ₹415.80 | -₹0.57 |
-| 36 | **Tomato** | -7.78% | -0.26% | ₹69.71 | +₹0.01 |
-| 37 | **Tur/Arhar Dal** | +4.20% | +0.47% | ₹134.64 | +₹0.48 |
-| 38 | **Turmeric (powder)** | -15.59% | +0.20% | ₹11.10 | +₹0.02 |
-| 39 | **Urad Dal** | +1.28% | +0.07% | ₹45.34 | +₹0.31 |
-| 40 | **Vanaspati (Packed)** | +0.39% | -0.11% | ₹74.62 | -₹0.75 |
-| 41 | **Wheat** | +2.49% | +0.68% | ₹26.31 | -₹0.24 |
+| 1 | **Atta (Wheat)** | +0.32% | +0.01% | ₹34.09 | -₹0.24 |
+| 2 | **Bajra (whole)** | +0.63% | +0.24% | ₹102.00 | -₹0.60 |
+| 3 | **Banana** | -1.04% | -0.36% | ₹58.67 | -₹1.01 |
+| 4 | **Besan** | +1.69% | +0.32% | ₹66.00 | -₹0.70 |
+| 5 | **Black Pepper (whole)** | +0.48% | -0.27% | ₹24.16 | -₹0.09 |
+| 6 | **Brinjal** | -2.55% | -3.00% | ₹155.67 | -₹1.35 |
+| 7 | **Broken Rice** | +1.65% | +0.34% | ₹45.33 | -₹0.82 |
+| 8 | **Butter (Pasteurised)** | +1.29% | +0.14% | ₹13.33 | -₹0.00 |
+| 9 | **Coriander (whole)** | +4.16% | +3.01% | ₹47.22 | -₹0.44 |
+| 10 | **Cummin Seed (whole)** | +0.76% | -0.58% | ₹48.50 | -₹0.71 |
+| 11 | **Desi Ghee** | +1.04% | +0.85% | ₹314.50 | -₹2.53 |
+| 12 | **Eggs** | +3.27% | +1.52% | ₹38.30 | -₹0.15 |
+| 13 | **Garlic** | +1.34% | -0.53% | ₹60.29 | -₹0.55 |
+| 14 | **Ginger** | -3.87% | -0.96% | ₹71.67 | -₹0.65 |
+| 15 | **Gram Dal** | +3.61% | +0.58% | ₹47.75 | -₹0.36 |
+| 16 | **Groundnut Oil (Packed)** | -0.18% | -0.23% | ₹238.50 | +₹2.05 |
+| 17 | **Gur** | +1.34% | +0.52% | ₹56.50 | +₹0.14 |
+| 18 | **Jowar (whole)** | +1.08% | +0.36% | ₹47.00 | -₹0.41 |
+| 19 | **Maida (wheat)** | +1.25% | -0.52% | ₹37.54 | -₹0.32 |
+| 20 | **Masoor Dal** | +0.20% | -0.60% | ₹47.05 | -₹0.57 |
+| 21 | **Milk @** | +0.17% | -0.81% | ₹36.36 | -₹0.07 |
+| 22 | **Moong Dal** | +2.04% | +0.59% | ₹27.95 | -₹0.71 |
+| 23 | **Mustard Oil (Packed)** | +2.13% | -0.69% | ₹87.10 | -₹1.07 |
+| 24 | **Onion** | -0.99% | -0.70% | ₹52.83 | -₹0.46 |
+| 25 | **Palm Oil (Packed)** | -1.88% | -2.52% | ₹178.00 | +₹0.77 |
+| 26 | **Potato** | -2.40% | +0.74% | ₹25.67 | -₹0.44 |
+| 27 | **Ragi (whole)** | +3.85% | +0.92% | ₹71.33 | +₹0.93 |
+| 28 | **Red Chillies (whole)** | +3.47% | +1.48% | ₹31.44 | -₹0.63 |
+| 29 | **Rice** | +2.85% | +0.47% | ₹38.91 | -₹0.21 |
+| 30 | **Salt Pack (Iodised)** | +0.04% | -0.84% | ₹20.40 | +₹0.28 |
+| 31 | **Soya Oil (Packed)** | +4.41% | -0.16% | ₹160.67 | +₹0.63 |
+| 32 | **Sugar** | +5.88% | +0.81% | ₹25.00 | +₹0.12 |
+| 33 | **Suji (whole)** | +0.50% | +1.03% | ₹53.33 | -₹1.24 |
+| 34 | **Sunflower Oil (Packed)** | +0.84% | -0.46% | ₹472.00 | -₹1.91 |
+| 35 | **Tea Loose** | -1.81% | +0.51% | ₹419.25 | -₹0.43 |
+| 36 | **Tomato** | -6.56% | -1.21% | ₹71.71 | -₹0.58 |
+| 37 | **Tur/Arhar Dal** | +3.81% | +1.06% | ₹135.42 | +₹0.42 |
+| 38 | **Turmeric (powder)** | +1.74% | -0.92% | ₹11.09 | -₹0.14 |
+| 39 | **Urad Dal** | +0.93% | +0.06% | ₹50.17 | +₹0.10 |
+| 40 | **Vanaspati (Packed)** | +0.41% | -0.01% | ₹74.58 | -₹1.91 |
+| 41 | **Wheat** | +1.39% | +0.31% | ₹19.66 | -₹0.21 |
 
 
 ##  Visual Trends
@@ -74,47 +74,47 @@ This automated engine tracks wholesale prices across India and uses Machine Lear
 
 | S.No | Commodity | Highest Price | Lowest Price | Today (Predicted) | Average |
 |---|---|---|---|---|---|
-| 1 | **Atta (Wheat)** | ₹68.33 (Andaman an) | ₹34.28 (Uttar Prad) | **₹43.06** | ₹43.28 |
-| 2 | **Bajra (whole)** | ₹128.00 (Manipur) | ₹27.00 (Haryana) | **₹47.95** | ₹48.28 |
-| 3 | **Banana** | ₹93.50 (Ladakh) | ₹37.49 (Madhya Pra) | **₹54.88** | ₹55.90 |
-| 4 | **Besan** | ₹146.00 (Andaman an) | ₹82.40 (Manipur) | **₹102.39** | ₹102.30 |
-| 5 | **Black Pepper (whole)** | ₹106.33 (DNH and DD) | ₹82.20 (Assam) | **₹91.51** | ₹91.67 |
-| 6 | **Brinjal** | ₹175.67 (Andaman an) | ₹31.00 (Uttarakhan) | **₹47.86** | ₹50.30 |
-| 7 | **Broken Rice** | ₹70.33 (Andaman an) | ₹24.67 (Jharkhand) | **₹40.15** | ₹40.68 |
-| 8 | **Butter (Pasteurised)** | ₹70.33 (Andaman an) | ₹58.00 (Chhattisga) | **₹61.84** | ₹61.80 |
-| 9 | **Coriander (whole)** | ₹85.00 (Mizoram) | ₹37.15 (Andhra Pra) | **₹49.77** | ₹49.47 |
-| 10 | **Cummin Seed (whole)** | ₹78.00 (Mizoram) | ₹34.00 (Delhi) | **₹42.97** | ₹43.25 |
-| 11 | **Desi Ghee** | ₹942.00 (Goa) | ₹649.67 (Rajasthan) | **₹718.64** | ₹721.06 |
-| 12 | **Eggs** | ₹114.00 (Andaman an) | ₹69.00 (Puducherry) | **₹87.80** | ₹87.37 |
-| 13 | **Garlic** | ₹92.33 (Andaman an) | ₹32.59 (Bihar) | **₹48.99** | ₹49.71 |
-| 14 | **Ginger** | ₹91.67 (Andaman an) | ₹25.00 (Uttarakhan) | **₹34.66** | ₹35.49 |
-| 15 | **Gram Dal** | ₹135.00 (Ladakh) | ₹85.00 (Chhattisga) | **₹98.54** | ₹98.12 |
-| 16 | **Groundnut Oil (Packed)** | ₹304.00 (Andaman an) | ₹63.75 (Jammu and ) | **₹201.52** | ₹198.63 |
-| 17 | **Gur** | ₹117.50 (Mizoram) | ₹60.00 (Chhattisga) | **₹71.47** | ₹71.44 |
-| 18 | **Jowar (whole)** | ₹77.00 (Goa) | ₹30.00 (Arunachal ) | **₹48.66** | ₹48.92 |
-| 19 | **Maida (wheat)** | ₹73.00 (Andaman an) | ₹36.50 (Bihar) | **₹45.38** | ₹45.49 |
-| 20 | **Masoor Dal** | ₹127.40 (Tripura) | ₹79.85 (Odisha) | **₹94.11** | ₹94.32 |
-| 21 | **Milk @** | ₹81.40 (Mizoram) | ₹45.15 (Tamil Nadu) | **₹64.79** | ₹64.68 |
-| 22 | **Moong Dal** | ₹136.33 (Mizoram) | ₹108.13 (Rajasthan) | **₹118.75** | ₹118.83 |
-| 23 | **Mustard Oil (Packed)** | ₹254.67 (Andaman an) | ₹166.93 (Nagaland) | **₹216.79** | ₹215.78 |
-| 24 | **Onion** | ₹93.33 (Andaman an) | ₹47.33 (Madhya Pra) | **₹56.80** | ₹57.77 |
-| 25 | **Palm Oil (Packed)** | ₹199.67 (Andaman an) | ₹21.67 (Sikkim) | **₹141.50** | ₹141.91 |
-| 26 | **Potato** | ₹46.00 (Ladakh) | ₹14.76 (West Benga) | **₹24.63** | ₹25.44 |
-| 27 | **Ragi (whole)** | ₹100.00 (Mizoram) | ₹28.63 (Meghalaya) | **₹57.85** | ₹57.33 |
-| 28 | **Red Chillies (whole)** | ₹56.00 (Goa) | ₹24.69 (Andhra Pra) | **₹33.18** | ₹33.32 |
-| 29 | **Rice** | ₹75.52 (Karnataka) | ₹36.75 (Meghalaya) | **₹49.18** | ₹49.18 |
-| 30 | **Salt Pack (Iodised)** | ₹31.67 (DNH and DD) | ₹11.60 (Tripura) | **₹24.21** | ₹24.10 |
-| 31 | **Soya Oil (Packed)** | ₹220.00 (Ladakh) | ₹52.00 (Puducherry) | **₹168.24** | ₹164.26 |
-| 32 | **Sugar** | ₹75.00 (Ladakh) | ₹52.00 (Puducherry) | **₹62.30** | ₹61.81 |
-| 33 | **Suji (whole)** | ₹90.67 (Andaman an) | ₹38.27 (Himachal P) | **₹50.92** | ₹51.76 |
-| 34 | **Sunflower Oil (Packed)** | ₹645.00 (Ladakh) | ₹177.00 (Chhattisga) | **₹207.98** | ₹208.71 |
-| 35 | **Tea Loose** | ₹645.00 (Ladakh) | ₹229.20 (Gujarat) | **₹299.41** | ₹302.06 |
-| 36 | **Tomato** | ₹96.90 (Mizoram) | ₹27.19 (Karnataka) | **₹43.31** | ₹43.74 |
-| 37 | **Tur/Arhar Dal** | ₹156.14 (Kerala) | ₹21.50 (Sikkim) | **₹135.71** | ₹134.73 |
-| 38 | **Turmeric (powder)** | ₹25.63 (Mizoram) | ₹14.53 (Tamil Nadu) | **₹17.63** | ₹17.66 |
-| 39 | **Urad Dal** | ₹155.17 (Sikkim) | ₹109.83 (Assam) | **₹132.01** | ₹131.58 |
-| 40 | **Vanaspati (Packed)** | ₹226.00 (Andaman an) | ₹151.38 (Andhra Pra) | **₹178.36** | ₹179.52 |
-| 41 | **Wheat** | ₹55.00 (Puducherry) | ₹28.69 (Uttar Prad) | **₹38.13** | ₹38.68 |
+| 1 | **Atta (Wheat)** | ₹68.33 (Andaman an) | ₹34.24 (Uttar Prad) | **₹43.23** | ₹43.16 |
+| 2 | **Bajra (whole)** | ₹128.00 (Manipur) | ₹26.00 (Haryana) | **₹48.44** | ₹48.70 |
+| 3 | **Banana** | ₹96.00 (Ladakh) | ₹37.33 (Madhya Pra) | **₹55.21** | ₹55.90 |
+| 4 | **Besan** | ₹146.00 (Andaman an) | ₹80.00 (Manipur) | **₹102.69** | ₹102.86 |
+| 5 | **Black Pepper (whole)** | ₹106.33 (DNH and DD) | ₹82.17 (Assam) | **₹91.63** | ₹91.63 |
+| 6 | **Brinjal** | ₹175.67 (Andaman an) | ₹20.00 (Uttarakhan) | **₹49.01** | ₹49.38 |
+| 7 | **Broken Rice** | ₹70.33 (Andaman an) | ₹25.00 (Jharkhand) | **₹40.53** | ₹40.99 |
+| 8 | **Butter (Pasteurised)** | ₹70.33 (Andaman an) | ₹57.00 (Chhattisga) | **₹61.92** | ₹61.94 |
+| 9 | **Coriander (whole)** | ₹84.29 (Mizoram) | ₹37.07 (Andhra Pra) | **₹49.85** | ₹50.78 |
+| 10 | **Cummin Seed (whole)** | ₹80.00 (Ladakh) | ₹31.50 (Rajasthan) | **₹43.27** | ₹43.61 |
+| 11 | **Desi Ghee** | ₹969.50 (Goa) | ₹655.00 (Telangana) | **₹719.76** | ₹722.71 |
+| 12 | **Eggs** | ₹114.00 (Andaman an) | ₹75.70 (Andhra Pra) | **₹88.02** | ₹88.46 |
+| 13 | **Garlic** | ₹92.33 (Andaman an) | ₹32.04 (Bihar) | **₹49.47** | ₹49.58 |
+| 14 | **Ginger** | ₹91.67 (Andaman an) | ₹20.00 (Uttarakhan) | **₹35.08** | ₹35.49 |
+| 15 | **Gram Dal** | ₹130.00 (Ladakh) | ₹82.25 (Chhattisga) | **₹98.56** | ₹98.80 |
+| 16 | **Groundnut Oil (Packed)** | ₹304.00 (Andaman an) | ₹65.50 (Jammu and ) | **₹199.76** | ₹198.06 |
+| 17 | **Gur** | ₹115.50 (Mizoram) | ₹59.00 (Chhattisga) | **₹71.63** | ₹71.49 |
+| 18 | **Jowar (whole)** | ₹77.00 (Goa) | ₹30.00 (Arunachal ) | **₹48.87** | ₹48.82 |
+| 19 | **Maida (wheat)** | ₹73.67 (Andaman an) | ₹36.13 (Bihar) | **₹45.63** | ₹45.62 |
+| 20 | **Masoor Dal** | ₹127.40 (Tripura) | ₹80.35 (Odisha) | **₹94.22** | ₹94.57 |
+| 21 | **Milk @** | ₹81.90 (Mizoram) | ₹45.54 (Tamil Nadu) | **₹64.72** | ₹64.66 |
+| 22 | **Moong Dal** | ₹136.70 (Mizoram) | ₹108.75 (Chhattisga) | **₹118.87** | ₹119.56 |
+| 23 | **Mustard Oil (Packed)** | ₹254.67 (Andaman an) | ₹167.57 (Nagaland) | **₹216.53** | ₹216.80 |
+| 24 | **Onion** | ₹93.33 (Andaman an) | ₹40.50 (Rajasthan) | **₹57.19** | ₹57.16 |
+| 25 | **Palm Oil (Packed)** | ₹199.67 (Andaman an) | ₹21.67 (Sikkim) | **₹141.02** | ₹139.56 |
+| 26 | **Potato** | ₹40.00 (Andaman an) | ₹14.33 (West Benga) | **₹25.02** | ₹25.14 |
+| 27 | **Ragi (whole)** | ₹100.00 (Mizoram) | ₹28.67 (Meghalaya) | **₹57.72** | ₹57.40 |
+| 28 | **Red Chillies (whole)** | ₹56.00 (Goa) | ₹24.56 (Andhra Pra) | **₹33.27** | ₹34.06 |
+| 29 | **Rice** | ₹75.47 (Karnataka) | ₹36.56 (Meghalaya) | **₹49.19** | ₹49.40 |
+| 30 | **Salt Pack (Iodised)** | ₹32.00 (Ladakh) | ₹11.60 (Tripura) | **₹24.12** | ₹23.83 |
+| 31 | **Soya Oil (Packed)** | ₹220.00 (Ladakh) | ₹59.33 (Kerala) | **₹166.95** | ₹167.70 |
+| 32 | **Sugar** | ₹80.00 (Ladakh) | ₹55.00 (Chandigarh) | **₹62.31** | ₹62.27 |
+| 33 | **Suji (whole)** | ₹91.33 (Andaman an) | ₹38.00 (Himachal P) | **₹51.32** | ₹52.40 |
+| 34 | **Sunflower Oil (Packed)** | ₹650.00 (Ladakh) | ₹178.00 (Chhattisga) | **₹209.46** | ₹209.65 |
+| 35 | **Tea Loose** | ₹650.00 (Ladakh) | ₹230.75 (Chhattisga) | **₹301.49** | ₹297.87 |
+| 36 | **Tomato** | ₹98.90 (Mizoram) | ₹27.19 (Karnataka) | **₹43.75** | ₹43.93 |
+| 37 | **Tur/Arhar Dal** | ₹156.92 (Kerala) | ₹21.50 (Sikkim) | **₹135.21** | ₹135.46 |
+| 38 | **Turmeric (powder)** | ₹25.75 (Mizoram) | ₹14.66 (Tamil Nadu) | **₹17.68** | ₹17.74 |
+| 39 | **Urad Dal** | ₹155.17 (Sikkim) | ₹105.00 (Chhattisga) | **₹131.89** | ₹131.47 |
+| 40 | **Vanaspati (Packed)** | ₹226.00 (Andaman an) | ₹151.42 (Andhra Pra) | **₹178.78** | ₹179.92 |
+| 41 | **Wheat** | ₹48.33 (Kerala) | ₹28.67 (Uttar Prad) | **₹38.45** | ₹38.27 |
 
 
 </details>
